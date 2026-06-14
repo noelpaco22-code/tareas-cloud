@@ -466,3 +466,169 @@ button:hover {
         font-size: 0.8rem;
     }
 }
+/* ==================== RESPONSIVE PARA CELULAR ==================== */
+@media (max-width: 768px) {
+    body {
+        padding: 12px;
+    }
+    
+    header {
+        padding: 30px 20px;
+    }
+    
+    header h1 {
+        font-size: 1.3rem;
+        letter-spacing: -0.5px;
+    }
+    
+    .subtitulo {
+        font-size: 0.55rem;
+        letter-spacing: 2px;
+    }
+    
+    .formulario, .lista-tareas {
+        padding: 20px;
+    }
+    
+    .formulario h2, .lista-tareas h2 {
+        font-size: 1.1rem;
+        margin-bottom: 16px;
+    }
+    
+    input {
+        padding: 12px 14px;
+        font-size: 0.85rem;
+        margin-bottom: 12px;
+    }
+    
+    button {
+        padding: 10px 20px;
+        font-size: 0.8rem;
+        letter-spacing: 1px;
+    }
+    
+    /* Tarjeta de tarea en celular - VERTICAL */
+    .tarea {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 15px;
+        margin-bottom: 12px;
+    }
+    
+    .tarea-info {
+        margin-bottom: 12px;
+    }
+    
+    .tarea-info strong {
+        font-size: 1rem;
+        margin-bottom: 6px;
+        word-break: break-word;
+    }
+    
+    .tarea-info span {
+        font-size: 0.75rem;
+        display: block;
+    }
+    
+    /* Botones en línea horizontal */
+    .tarea-acciones {
+        display: flex;
+        justify-content: flex-end;
+        gap: 8px;
+        width: 100%;
+    }
+    
+    .tarea-acciones button {
+        margin-left: 0;
+        padding: 6px 14px;
+        font-size: 0.7rem;
+        flex: 1;
+        max-width: 90px;
+        text-align: center;
+    }
+    
+    /* Notificaciones en celular */
+    .notificacion {
+        min-width: 260px;
+        max-width: 90%;
+        padding: 12px 16px;
+    }
+    
+    .notificacion-mensaje {
+        font-size: 0.8rem;
+    }
+    
+    .notificacion-cerrar {
+        padding: 4px 10px;
+        font-size: 0.65rem;
+    }
+    
+    /* Modales en celular */
+    .modal-contenido {
+        width: 85%;
+        max-width: 320px;
+        margin: 0 auto;
+    }
+    
+    .modal-header h3 {
+        font-size: 1rem;
+    }
+    
+    .modal-body {
+        padding: 16px;
+    }
+    
+    .modal-body input {
+        padding: 8px 12px;
+        font-size: 0.85rem;
+    }
+    
+    .modal-footer button {
+        padding: 6px 16px;
+        font-size: 0.75rem;
+    }
+    
+    /* Contenedor de tareas */
+    #tareas-container {
+        margin-top: 10px;
+    }
+    
+    .vacio {
+        padding: 40px 20px;
+        font-size: 0.85rem;
+    }
+}
+
+/* Para pantallas muy pequeñas (menos de 480px) */
+@media (max-width: 480px) {
+    body {
+        padding: 8px;
+    }
+    
+    header h1 {
+        font-size: 1.1rem;
+    }
+    
+    .formulario, .lista-tareas {
+        padding: 15px;
+    }
+    
+    .tarea {
+        padding: 12px;
+    }
+    
+    .tarea-info strong {
+        font-size: 0.9rem;
+    }
+    
+    .tarea-acciones button {
+        padding: 5px 10px;
+        font-size: 0.65rem;
+        max-width: 75px;
+    }
+    
+    button {
+        padding: 8px 16px;
+        font-size: 0.75rem;
+    }
+}
