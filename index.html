@@ -9,6 +9,9 @@
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
+    <!-- Contenedor de notificaciones -->
+    <div id="notification-container"></div>
+
     <header>
         <h1>Tareas Colaborativas en Tiempo Real</h1>
         <p class="subtitulo">Cloud Computing — UAB FIT | Tecnologías Emergentes</p>
@@ -18,7 +21,7 @@
             <h2>Nueva Tarea</h2>
             <input type="text" id="titulo" placeholder="Título de la tarea" required>
             <input type="text" id="responsable" placeholder="Responsable" required>
-            <button onclick="agregarTarea()">Agregar Tarea</button>
+            <button onclick="agregarTarea()">➕ Agregar Tarea</button>
         </section>
 
         <section class="lista-tareas">
@@ -30,6 +33,5 @@
     </main>
     
     <script src="app.js"></script>
-    
 </body>
 </html>
