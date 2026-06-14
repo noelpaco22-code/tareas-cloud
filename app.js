@@ -31,7 +31,7 @@ function renderizarTareas(tareas) {
     let html = '';
     for (const t of tareas) {
         const claseCompletada = t.completada ? 'tarea completada' : 'tarea';
-        const textoBoton = t.completada ? 'Reabrir' : 'Completar';
+        const textoBoton = t.completada ? 'Pendiente' : 'Completar';
 
         html += `
             <div class="${claseCompletada}">
