@@ -1,0 +1,480 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+    background: #05020a;
+    min-height: 100vh;
+    padding: 32px;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Fondo con nebulosa - más lento */
+body::before {
+    content: '';
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 30% 40%, rgba(0, 255, 255, 0.1), transparent 40%),
+                radial-gradient(circle at 70% 60%, rgba(160, 32, 240, 0.1), transparent 50%),
+                radial-gradient(circle at 50% 80%, rgba(255, 215, 0, 0.06), transparent 60%);
+    animation: nebulaDrift 30s ease-in-out infinite alternate;
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes nebulaDrift {
+    0% { transform: translate(0, 0) scale(1); opacity: 0.4; }
+    100% { transform: translate(3%, 3%) scale(1.03); opacity: 0.8; }
+}
+
+/* Grilla de fondo - más sutil y lenta */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(rgba(0, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 215, 0, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    pointer-events: none;
+    z-index: 0;
+    animation: gridSlow 60s linear infinite;
+}
+
+@keyframes gridSlow {
+    0% { background-position: 0 0; }
+    100% { background-position: 50px 50px; }
+}
+
+/* Contenedor principal */
+main {
+    max-width: 950px;
+    margin: 0 auto;
+    background: rgba(5, 2, 10, 0.7);
+    backdrop-filter: blur(12px);
+    border-radius: 32px;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    border: 1px solid rgba(0, 255, 255, 0.4);
+    animation: borderGlow 5s ease-in-out infinite alternate;
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.1);
+}
+
+@keyframes borderGlow {
+    0% { 
+        border-color: rgba(0, 255, 255, 0.3);
+        box-shadow: 0 0 20px rgba(0, 255, 255, 0.08);
+    }
+    100% { 
+        border-color: rgba(255, 215, 0, 0.5);
+        box-shadow: 0 0 60px rgba(160, 32, 240, 0.15);
+    }
+}
+
+/* Header */
+header {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(30, 0, 50, 0.7));
+    padding: 55px 32px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+}
+
+/* Láser animado - más lento */
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, cyan, gold, purple, transparent);
+    animation: laserSweep 7s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes laserSweep {
+    0% { left: -100%; opacity: 0; }
+    20% { opacity: 0.6; }
+    80% { opacity: 0.6; }
+    100% { left: 100%; opacity: 0; }
+}
+
+/* Círculo pulsante - más lento */
+header::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(0, 255, 255, 0.08), rgba(160, 32, 240, 0.04));
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    animation: neonPulse 4s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes neonPulse {
+    0%, 100% { 
+        width: 140px;
+        height: 140px;
+        opacity: 0.3;
+    }
+    50% { 
+        width: 280px;
+        height: 280px;
+        opacity: 0.5;
+        background: radial-gradient(circle, rgba(255, 215, 0, 0.08), rgba(0, 255, 255, 0.04));
+    }
+}
+
+/* Título principal - glitch más lento */
+header h1 {
+    font-size: 2.3rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, cyan, #a020f0, gold, cyan);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: textGradient 6s ease infinite, textGlitch 5s infinite;
+    letter-spacing: -1px;
+    position: relative;
+    z-index: 1;
+}
+
+@keyframes textGradient {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+@keyframes textGlitch {
+    0%, 100% { text-shadow: 0 0 8px cyan; }
+    97% { text-shadow: 0 0 8px cyan; }
+    98% { text-shadow: -1px 0 cyan, 1px 0 gold; }
+    99% { text-shadow: 1px 0 purple, -1px 0 cyan; }
+}
+
+/* Subtítulo */
+.subtitulo {
+    color: rgba(0, 255, 255, 0.7);
+    font-size: 0.75rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-top: 15px;
+    position: relative;
+    z-index: 1;
+    animation: subtitleFlicker 3s infinite;
+}
+
+@keyframes subtitleFlicker {
+    0%, 100% { opacity: 0.7; text-shadow: 0 0 4px gold; }
+    50% { opacity: 1; text-shadow: 0 0 10px cyan; }
+}
+
+/* Formulario */
+.formulario {
+    padding: 40px;
+    background: rgba(0, 0, 0, 0.5);
+    border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+}
+
+.formulario h2, .lista-tareas h2 {
+    margin-bottom: 28px;
+    font-size: 1.4rem;
+    font-weight: 600;
+    background: linear-gradient(135deg, cyan, #a020f0, gold);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    position: relative;
+    display: inline-block;
+}
+
+.formulario h2::after, .lista-tareas h2::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, cyan, gold, purple, transparent);
+    animation: underlineExpand 4s ease-in-out infinite;
+}
+
+@keyframes underlineExpand {
+    0% { width: 0; opacity: 0; }
+    50% { width: 100%; opacity: 0.8; }
+    100% { width: 0; opacity: 0; }
+}
+
+/* Inputs */
+input {
+    width: 100%;
+    padding: 16px 20px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    border-radius: 16px;
+    font-size: 1rem;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+input:focus {
+    outline: none;
+    border-color: gold;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.4), inset 0 0 8px rgba(160, 32, 240, 0.15);
+    transform: translateY(-2px);
+}
+
+input::placeholder {
+    color: rgba(0, 255, 255, 0.3);
+}
+
+/* Botones */
+button {
+    background: linear-gradient(135deg, rgba(0, 255, 255, 0.2), rgba(160, 32, 240, 0.1));
+    color: cyan;
+    border: 1px solid cyan;
+    padding: 14px 32px;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    overflow: hidden;
+}
+
+button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, gold, purple);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+    border-radius: 50%;
+}
+
+button:hover::before {
+    width: 300px;
+    height: 300px;
+    opacity: 0.25;
+}
+
+button:hover {
+    background: linear-gradient(135deg, gold, purple);
+    color: black;
+    box-shadow: 0 0 25px gold, 0 0 45px purple;
+    transform: translateY(-2px);
+    letter-spacing: 3px;
+}
+
+/* Lista de tareas */
+.lista-tareas {
+    padding: 40px;
+}
+
+/* Tarjeta de tarea */
+.tarea {
+    background: rgba(0, 0, 0, 0.55);
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    border-radius: 24px;
+    padding: 22px;
+    margin-bottom: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.tarea::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.1), rgba(160, 32, 240, 0.1), transparent);
+    transition: left 0.8s ease;
+}
+
+.tarea:hover::before {
+    left: 100%;
+}
+
+.tarea:hover {
+    border-color: gold;
+    transform: translateX(8px);
+    box-shadow: -8px 0 25px rgba(255, 215, 0, 0.25), 8px 0 15px rgba(160, 32, 240, 0.15);
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.tarea.completada {
+    border-color: rgba(255, 215, 0, 0.35);
+    opacity: 0.7;
+}
+
+.tarea.completada .tarea-info strong {
+    text-decoration: line-through;
+    background: linear-gradient(135deg, gold, purple);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.tarea-info {
+    flex: 1;
+}
+
+.tarea-info strong {
+    display: block;
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    background: linear-gradient(135deg, cyan, #a020f0);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.tarea-info span {
+    font-size: 0.85rem;
+    color: rgba(255, 215, 0, 0.6);
+}
+
+/* Botones dentro de tareas */
+.tarea-acciones button {
+    margin-left: 12px;
+    padding: 8px 20px;
+    font-size: 0.8rem;
+    transition: all 0.3s ease;
+}
+
+.btn-eliminar {
+    border-color: #ff0066;
+    color: #ff0066;
+}
+
+.btn-eliminar:hover {
+    background: #ff0066;
+    color: black;
+    box-shadow: 0 0 18px #ff0066;
+}
+
+/* Mensaje vacío */
+.vacio {
+    text-align: center;
+    color: rgba(0, 255, 255, 0.4);
+    padding: 60px;
+    animation: voidNeon 3s ease-in-out infinite;
+}
+
+@keyframes voidNeon {
+    0%, 100% { text-shadow: 0 0 4px gold; opacity: 0.5; }
+    50% { text-shadow: 0 0 15px purple; opacity: 0.9; }
+}
+
+/* Animación de entrada de tarjetas - más suave */
+@keyframes neonCardEntrance {
+    from {
+        opacity: 0;
+        transform: translateX(-40px);
+        filter: blur(4px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+        filter: blur(0);
+    }
+}
+
+.tarea {
+    animation: neonCardEntrance 0.5s ease-out backwards;
+}
+
+.tarea:nth-child(1) { animation-delay: 0.05s; }
+.tarea:nth-child(2) { animation-delay: 0.1s; }
+.tarea:nth-child(3) { animation-delay: 0.15s; }
+.tarea:nth-child(4) { animation-delay: 0.2s; }
+.tarea:nth-child(5) { animation-delay: 0.25s; }
+.tarea:nth-child(6) { animation-delay: 0.3s; }
+.tarea:nth-child(7) { animation-delay: 0.35s; }
+.tarea:nth-child(8) { animation-delay: 0.4s; }
+
+/* Scrollbar personalizado */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #05020a;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, cyan, gold, purple);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, purple, gold, cyan);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    body {
+        padding: 16px;
+    }
+    
+    header h1 {
+        font-size: 1.6rem;
+    }
+    
+    .subtitulo {
+        font-size: 0.65rem;
+        letter-spacing: 3px;
+    }
+    
+    .formulario, .lista-tareas {
+        padding: 24px;
+    }
+    
+    .tarea {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    
+    .tarea-acciones {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+    }
+    
+    button {
+        padding: 10px 20px;
+        font-size: 0.85rem;
+    }
+}
