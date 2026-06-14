@@ -41,7 +41,7 @@ function renderizarTareas(tareas) {
                 </div>
                 <div class="tarea-acciones">
                     <button onclick="toggleEstado('${t.id}', ${t.completada})">${textoBoton}</button>
-                    <button class="btn-editar" onclick="editarTarea('${t.id}')">✏️ Editar</button>
+                    <button class="btn-editar" onclick="editarTarea('${t.id}')">Editar</button>
                     <button class="btn-eliminar" onclick="eliminarTarea('${t.id}')">Eliminar</button>
                 </div>
             </div>
