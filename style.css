@@ -11,7 +11,6 @@ body {
     padding: 32px;
 }
 
-/* Fondo simple sin animación */
 body::before {
     content: '';
     position: fixed;
@@ -25,7 +24,6 @@ body::before {
     z-index: 0;
 }
 
-/* Grilla más simple (sin animación) */
 body::after {
     content: '';
     position: fixed;
@@ -81,7 +79,6 @@ header h1 {
     margin-top: 12px;
 }
 
-/* Formulario */
 .formulario {
     padding: 35px;
     background: rgba(0, 0, 0, 0.4);
@@ -191,10 +188,15 @@ button:hover {
     color: rgba(0, 255, 255, 0.5);
 }
 
+.tarea-acciones {
+    display: flex;
+    gap: 8px;
+}
+
 .tarea-acciones button {
-    margin-left: 10px;
-    padding: 6px 16px;
-    font-size: 0.75rem;
+    margin-left: 0;
+    padding: 6px 14px;
+    font-size: 0.7rem;
 }
 
 .btn-eliminar {
@@ -214,7 +216,6 @@ button:hover {
     padding: 50px;
 }
 
-/* Scrollbar ligero */
 ::-webkit-scrollbar {
     width: 6px;
 }
@@ -228,7 +229,7 @@ button:hover {
     border-radius: 5px;
 }
 
-/* ==================== NOTIFICACIONES ==================== */
+/* NOTIFICACIONES */
 #notification-container {
     position: fixed;
     top: 0;
@@ -298,7 +299,7 @@ button:hover {
     background: rgba(255, 255, 255, 0.25);
 }
 
-/* ==================== MODALES ==================== */
+/* MODALES */
 .modal {
     display: none;
     position: fixed;
@@ -435,50 +436,18 @@ button:hover {
     font-size: 0.75rem;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    body {
-        padding: 16px;
-    }
-    
-    header h1 {
-        font-size: 1.5rem;
-    }
-    
-    .formulario, .lista-tareas {
-        padding: 20px;
-    }
-    
-    .tarea {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
-    }
-    
-    .tarea-acciones {
-        width: 100%;
-        display: flex;
-        justify-content: flex-end;
-    }
-    
-    button {
-        padding: 8px 16px;
-        font-size: 0.8rem;
-    }
-}
-/* ==================== RESPONSIVE PARA CELULAR ==================== */
+/* ==================== RESPONSIVE CELULAR (CORREGIDO) ==================== */
 @media (max-width: 768px) {
     body {
         padding: 12px;
     }
     
     header {
-        padding: 30px 20px;
+        padding: 25px 16px;
     }
     
     header h1 {
         font-size: 1.3rem;
-        letter-spacing: -0.5px;
     }
     
     .subtitulo {
@@ -487,32 +456,25 @@ button:hover {
     }
     
     .formulario, .lista-tareas {
-        padding: 20px;
+        padding: 18px;
     }
     
     .formulario h2, .lista-tareas h2 {
         font-size: 1.1rem;
-        margin-bottom: 16px;
+        margin-bottom: 14px;
     }
     
     input {
-        padding: 12px 14px;
+        padding: 10px 14px;
         font-size: 0.85rem;
         margin-bottom: 12px;
     }
     
-    button {
-        padding: 10px 20px;
-        font-size: 0.8rem;
-        letter-spacing: 1px;
-    }
-    
-    /* Tarjeta de tarea en celular - VERTICAL */
+    /* Tarjeta vertical para celular */
     .tarea {
         flex-direction: column;
         align-items: stretch;
-        padding: 15px;
-        margin-bottom: 12px;
+        padding: 14px;
     }
     
     .tarea-info {
@@ -520,54 +482,49 @@ button:hover {
     }
     
     .tarea-info strong {
-        font-size: 1rem;
-        margin-bottom: 6px;
+        font-size: 0.95rem;
         word-break: break-word;
     }
     
     .tarea-info span {
-        font-size: 0.75rem;
-        display: block;
+        font-size: 0.7rem;
     }
     
-    /* Botones en línea horizontal */
+    /* Botones en fila - TEXTO MAS CORTO */
     .tarea-acciones {
         display: flex;
         justify-content: flex-end;
-        gap: 8px;
+        gap: 6px;
         width: 100%;
     }
     
     .tarea-acciones button {
-        margin-left: 0;
-        padding: 6px 14px;
-        font-size: 0.7rem;
-        flex: 1;
-        max-width: 90px;
-        text-align: center;
+        padding: 5px 8px;
+        font-size: 0.6rem;
+        min-width: 55px;
+        white-space: nowrap;
     }
     
-    /* Notificaciones en celular */
+    /* Notificaciones */
     .notificacion {
-        min-width: 260px;
-        max-width: 90%;
-        padding: 12px 16px;
+        min-width: 250px;
+        max-width: 85%;
+        padding: 10px 14px;
     }
     
     .notificacion-mensaje {
-        font-size: 0.8rem;
+        font-size: 0.75rem;
     }
     
     .notificacion-cerrar {
-        padding: 4px 10px;
-        font-size: 0.65rem;
+        padding: 3px 8px;
+        font-size: 0.6rem;
     }
     
-    /* Modales en celular */
+    /* Modales */
     .modal-contenido {
         width: 85%;
         max-width: 320px;
-        margin: 0 auto;
     }
     
     .modal-header h3 {
@@ -575,60 +532,55 @@ button:hover {
     }
     
     .modal-body {
-        padding: 16px;
+        padding: 14px;
     }
     
     .modal-body input {
         padding: 8px 12px;
-        font-size: 0.85rem;
+        font-size: 0.8rem;
     }
     
     .modal-footer button {
-        padding: 6px 16px;
-        font-size: 0.75rem;
-    }
-    
-    /* Contenedor de tareas */
-    #tareas-container {
-        margin-top: 10px;
+        padding: 5px 14px;
+        font-size: 0.7rem;
     }
     
     .vacio {
-        padding: 40px 20px;
-        font-size: 0.85rem;
+        padding: 35px 20px;
+        font-size: 0.8rem;
     }
 }
 
-/* Para pantallas muy pequeñas (menos de 480px) */
+/* Pantallas muy pequeñas */
 @media (max-width: 480px) {
     body {
         padding: 8px;
     }
     
     header h1 {
-        font-size: 1.1rem;
+        font-size: 1rem;
     }
     
     .formulario, .lista-tareas {
-        padding: 15px;
-    }
-    
-    .tarea {
         padding: 12px;
     }
     
+    .tarea {
+        padding: 10px;
+    }
+    
     .tarea-info strong {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
     }
     
     .tarea-acciones button {
-        padding: 5px 10px;
-        font-size: 0.65rem;
-        max-width: 75px;
+        padding: 4px 6px;
+        font-size: 0.55rem;
+        min-width: 48px;
     }
     
     button {
-        padding: 8px 16px;
-        font-size: 0.75rem;
+        padding: 6px 12px;
+        font-size: 0.7rem;
     }
 }
