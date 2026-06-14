@@ -34,13 +34,14 @@ function renderizarTareas(tareas) {
         const textoBoton = t.completada ? 'Pendiente' : 'Completar';
 
         html += `
-            <div class="${claseCompletada}">
+            <div class="${claseCompletada}" id="tarea-${t.id}">
                 <div class="tarea-info">
-                    <strong>${escapeHtml(t.titulo)}</strong>
-                    <span>Responsable: ${escapeHtml(t.responsable)}</span>
+                    <strong id="titulo-${t.id}">${escapeHtml(t.titulo)}</strong>
+                    <span id="responsable-${t.id}">Responsable: ${escapeHtml(t.responsable)}</span>
                 </div>
                 <div class="tarea-acciones">
                     <button onclick="toggleEstado('${t.id}', ${t.completada})">${textoBoton}</button>
+                    <button class="btn-editar" onclick="editarTarea('${t.id}')">✏️ Editar</button>
                     <button class="btn-eliminar" onclick="eliminarTarea('${t.id}')">Eliminar</button>
                 </div>
             </div>
@@ -80,6 +81,30 @@ window.agregarTarea = async function() {
 // Función para cambiar el estado (pendiente/completada)
 window.toggleEstado = async function(id, estadoActual) {
     await db.from('tareas').update({ completada: !estadoActual }).eq('id', id);
+}
+
+// Función para editar una tarea
+window.editarTarea = async function(id) {
+    // Obtener los valores actuales de la tarea
+    const tituloActual = document.getElementById(`titulo-${id}`).textContent;
+    const responsableActual = document.getElementById(`responsable-${id}`).textContent.replace('Responsable: ', '');
+    
+    // Crear un prompt personalizado con HTML
+    const nuevoTitulo = prompt('✏️ Editar título de la tarea:', tituloActual);
+    if (nuevoTitulo !== null && nuevoTitulo.trim() !== '') {
+        const nuevoResponsable = prompt('👤 Editar responsable:', responsableActual);
+        if (nuevoResponsable !== null && nuevoResponsable.trim() !== '') {
+            // Actualizar en Supabase
+            await db.from('tareas').update({ 
+                titulo: nuevoTitulo.trim(), 
+                responsable: nuevoResponsable.trim() 
+            }).eq('id', id);
+        } else if (nuevoResponsable !== null) {
+            alert('El responsable no puede estar vacío');
+        }
+    } else if (nuevoTitulo !== null) {
+        alert('El título no puede estar vacío');
+    }
 }
 
 // Función para eliminar una tarea
