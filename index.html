@@ -31,6 +31,46 @@
             </div>
         </section>
     </main>
+
+    <!-- ==================== MODAL PARA EDITAR ==================== -->
+    <div id="modal-editar" class="modal">
+        <div class="modal-contenido">
+            <div class="modal-header">
+                <h3>✏️ Editar Tarea</h3>
+                <button class="modal-cerrar" onclick="cerrarModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <label>Título de la tarea</label>
+                <input type="text" id="modal-titulo" placeholder="Ej: Hacer el informe">
+                
+                <label>Responsable</label>
+                <input type="text" id="modal-responsable" placeholder="Ej: Noel Paco">
+            </div>
+            <div class="modal-footer">
+                <button class="btn-cancelar" onclick="cerrarModal()">Cancelar</button>
+                <button class="btn-guardar" onclick="guardarEdicion()">Guardar cambios</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== MODAL PARA ELIMINAR ==================== -->
+    <div id="modal-eliminar" class="modal">
+        <div class="modal-contenido modal-eliminar">
+            <div class="modal-header">
+                <h3>🗑️ Eliminar Tarea</h3>
+                <button class="modal-cerrar" onclick="cerrarModalEliminar()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p class="mensaje-eliminar">¿Estás seguro de que quieres eliminar esta tarea?</p>
+                <p class="tarea-eliminar" id="tarea-eliminar-info"></p>
+                <p class="advertencia">⚠️ Esta acción no se puede deshacer.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-cancelar" onclick="cerrarModalEliminar()">Cancelar</button>
+                <button class="btn-confirmar-eliminar" onclick="confirmarEliminar()">Eliminar</button>
+            </div>
+        </div>
+    </div>
     
     <script src="app.js"></script>
 </body>
