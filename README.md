@@ -2,7 +2,7 @@
 
 ## 🌐 Demo en Vivo
 
-🔗 **[Ver aplicación en Vercel](https://tareas-cloud-nu.vercel.app/)**
+🔗 **[Ver aplicación](https://tareas-cloud-nu.vercel.app/)**
 
 ---
 
