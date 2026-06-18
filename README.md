@@ -57,41 +57,42 @@ Desarrollar una aplicación web funcional que integre un backend en tiempo real 
 ## 🏗️ Arquitectura de la Aplicación
 
 ### Diagrama de Arquitectura Cloud
-┌─────────────────┐
-│ USUARIOS │
-│ (Navegadores) │
-└────────┬────────┘
+🌐 USUARIOS
+(Navegadores Web)
 │
 ▼
-┌─────────────────┐
-│ VERCEL │
+┌───────────────┐
+│ 🖥️ VERCEL │
 │ (Frontend) │
+│ │
 │ • HTML5 │
 │ • CSS3 │
 │ • JavaScript │
-└────────┬────────┘
+└───────┬───────┘
 │
 ▼
-┌─────────────────────────────────────────┐
-│ SUPABASE (Backend) │
-│ ┌───────────────────────────────────┐ │
-│ │ PostgreSQL Database │ │
-│ │ ┌─────────────────────────────┐ │ │
+┌─────────────────────────────────────────────┐
+│ ☁️ SUPABASE (Backend) │
+│ │
+│ ┌────────────────────────────────────────┐ │
+│ │ 📊 Base de Datos PostgreSQL │ │
+│ │ ┌──────────────────────────────────┐ │ │
 │ │ │ Tabla: tareas │ │ │
-│ │ │ • id (UUID) │ │ │
-│ │ │ • titulo (TEXT) │ │ │
-│ │ │ • responsable (TEXT) │ │ │
-│ │ │ • completada (BOOLEAN) │ │ │
-│ │ │ • created_at (TIMESTAMP) │ │ │
-│ │ └─────────────────────────────┘ │ │
-│ └───────────────────────────────────┘ │
-│ ┌───────────────────────────────────┐ │
-│ │ Tiempo Real (WebSockets) │ │
-│ │ • Eventos: INSERT, UPDATE, │ │
-│ │ DELETE │ │
-│ └───────────────────────────────────┘ │
-│ ┌───────────────────────────────────┐ │
-│ │ Seguridad (RLS) │ │
+│ │ │ 📌 id (UUID) │ │ │
+│ │ │ 📝 título (TEXT) │ │ │
+│ │ │ 👤 responsable (TEXT) │ │ │
+│ │ │ ✅ completada (BOOLEAN) │ │ │
+│ │ │ 📅 created_at (TIMESTAMP) │ │ │
+│ │ └──────────────────────────────────┘ │ │
+│ └────────────────────────────────────────┘ │
+│ │
+│ ┌────────────────────────────────────────┐ │
+│ │ 🔄 Tiempo Real (WebSockets) │ │
+│ │ • Eventos: INSERT, UPDATE, DELETE │ │
+│ └────────────────────────────────────────┘ │
+│ │
+│ ┌────────────────────────────────────────┐ │
+│ │ 🔒 Seguridad (RLS) │ │
 │ │ • Políticas de acceso público │ │
-│ └───────────────────────────────────┘ │
-└─────────────────────────────────────────┘
+│ └────────────────────────────────────────┘ │
+└─────────────────────────────────────────────┘
