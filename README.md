@@ -78,16 +78,32 @@ Desarrollar una aplicación web funcional que integre un backend en tiempo real 
 6. Todos los usuarios ven los cambios al instante
 ## 📦 Instalación Local
 
+## 📦 Instalación Local
+
 ### Requisitos Previos
 - [Visual Studio Code](https://code.visualstudio.com/)
 - [Git](https://git-scm.com/)
 - Cuenta gratuita en [Supabase](https://supabase.com)
 - Cuenta gratuita en [GitHub](https://github.com)
-- Navegador web moderno
 
 ### Pasos para ejecutar localmente
 
-1. **Clonar el repositorio**
-   ```bash
-   git clone https://github.com/noelpaco22-code/tareas-cloud.git
-   cd tareas-cloud
+1. **Descargar el proyecto**
+   - Desde GitHub, haz clic en "Code" y luego en "Download ZIP"
+   - O clona el repositorio con: `git clone https://github.com/noelpaco22-code/tareas-cloud.git`
+
+2. **Configurar Supabase**
+   - Crear un proyecto en Supabase
+   - Ejecutar el siguiente SQL en el editor SQL:
+   ```sql
+   CREATE TABLE tareas (
+       id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+       titulo TEXT NOT NULL,
+       responsable TEXT NOT NULL,
+       completada BOOLEAN DEFAULT FALSE,
+       created_at TIMESTAMP DEFAULT NOW()
+   );
+
+   ALTER TABLE tareas ENABLE ROW LEVEL SECURITY;
+   CREATE POLICY "acceso_publico" ON tareas FOR ALL USING (true);
+   ALTER PUBLICATION supabase_realtime ADD TABLE tareas;
