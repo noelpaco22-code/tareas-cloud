@@ -128,6 +128,7 @@ Ya creado el proyecto, vamos al SQL Editor para crear la tabla:
 
 ### FASE 2: Estructura del Proyecto
 *Estructura de archivos del proyecto*
+
 ![Estructura de archivos en VS Code](media/2.png)
 
 
