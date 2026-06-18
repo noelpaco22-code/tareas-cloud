@@ -11,22 +11,18 @@ function mostrarNotificacion(mensaje, tipo = 'info') {
     const notificacion = document.createElement('div');
     notificacion.className = `notificacion notificacion-${tipo}`;
     
-    // Iconos según el tipo
-    let icono = '📌';
-    if (tipo === 'exito') icono = '✅';
-    if (tipo === 'error') icono = '❌';
-    if (tipo === 'info') icono = 'ℹ️';
-    if (tipo === 'warning') icono = '⚠️';
-    
     notificacion.innerHTML = `
-        <span class="notificacion-icono">${icono}</span>
         <span class="notificacion-mensaje">${mensaje}</span>
-        <button class="notificacion-cerrar" onclick="this.parentElement.remove()">✖</button>
+        <button class="notificacion-cerrar">CERRAR</button>
     `;
     
     container.appendChild(notificacion);
     
-    // Auto-cerrar después de 3 segundos
+    const botonCerrar = notificacion.querySelector('.notificacion-cerrar');
+    botonCerrar.addEventListener('click', () => {
+        notificacion.remove();
+    });
+    
     setTimeout(() => {
         if (notificacion && notificacion.remove) {
             notificacion.remove();
@@ -36,7 +32,6 @@ function mostrarNotificacion(mensaje, tipo = 'info') {
 
 // ==================== CRUD DE TAREAS ====================
 
-// Función para cargar tareas desde la base de datos
 async function cargarTareas() {
     const { data: tareas, error } = await db
         .from('tareas')
@@ -51,7 +46,6 @@ async function cargarTareas() {
     renderizarTareas(tareas);
 }
 
-// Función para mostrar las tareas en la pantalla
 function renderizarTareas(tareas) {
     const contenedor = document.getElementById('tareas-container');
     const contadorSpan = document.getElementById('contador');
@@ -75,7 +69,7 @@ function renderizarTareas(tareas) {
                 </div>
                 <div class="tarea-acciones">
                     <button onclick="toggleEstado('${t.id}', ${t.completada})">${textoBoton}</button>
-                    <button class="btn-editar" onclick="editarTarea('${t.id}')">✏️ Editar</button>
+                    <button class="btn-editar" onclick="editarTarea('${t.id}')"> Editar</button>
                     <button class="btn-eliminar" onclick="eliminarTarea('${t.id}')">Eliminar</button>
                 </div>
             </div>
@@ -84,7 +78,6 @@ function renderizarTareas(tareas) {
     contenedor.innerHTML = html;
 }
 
-// Función para evitar problemas con caracteres especiales
 function escapeHtml(str) {
     if (!str) return '';
     return str.replace(/[&<>]/g, function(m) {
@@ -95,29 +88,26 @@ function escapeHtml(str) {
     });
 }
 
-// Función para agregar una nueva tarea
 window.agregarTarea = async function() {
     const titulo = document.getElementById('titulo').value.trim();
     const responsable = document.getElementById('responsable').value.trim();
 
     if (!titulo || !responsable) {
-        mostrarNotificacion('❌ Completa todos los campos', 'warning');
+        mostrarNotificacion('Completa todos los campos', 'warning');
         return;
     }
 
     const { error } = await db.from('tareas').insert([{ titulo, responsable }]);
     
     if (!error) {
-        mostrarNotificacion(`✅ Tarea "${titulo}" agregada correctamente`, 'exito');
-        // Limpiar el formulario
+        mostrarNotificacion(`Tarea "${titulo}" agregada correctamente`, 'exito');
         document.getElementById('titulo').value = '';
         document.getElementById('responsable').value = '';
     } else {
-        mostrarNotificacion('❌ Error al agregar la tarea', 'error');
+        mostrarNotificacion('Error al agregar la tarea', 'error');
     }
 }
 
-// Función para cambiar el estado (pendiente/completada)
 window.toggleEstado = async function(id, estadoActual) {
     const nuevaEstado = !estadoActual;
     const accion = nuevaEstado ? 'completada' : 'reabierta';
@@ -125,44 +115,110 @@ window.toggleEstado = async function(id, estadoActual) {
     const { error } = await db.from('tareas').update({ completada: nuevaEstado }).eq('id', id);
     
     if (!error) {
-        mostrarNotificacion(`📋 Tarea marcada como ${accion}`, 'info');
+        mostrarNotificacion(`Tarea marcada como ${accion}`, 'info');
     }
 }
 
-// Función para editar una tarea
-window.editarTarea = async function(id) {
+// ==================== EDITAR CON MODAL ====================
+let tareaIdEditando = null;
+
+window.editarTarea = function(id) {
+    tareaIdEditando = id;
+    
     const tituloActual = document.getElementById(`titulo-${id}`).textContent;
     const responsableActual = document.getElementById(`responsable-${id}`).textContent.replace('Responsable: ', '');
     
-    const nuevoTitulo = prompt('✏️ Editar título de la tarea:', tituloActual);
-    if (nuevoTitulo !== null && nuevoTitulo.trim() !== '') {
-        const nuevoResponsable = prompt('👤 Editar responsable:', responsableActual);
-        if (nuevoResponsable !== null && nuevoResponsable.trim() !== '') {
-            const { error } = await db.from('tareas').update({ 
-                titulo: nuevoTitulo.trim(), 
-                responsable: nuevoResponsable.trim() 
-            }).eq('id', id);
-            
-            if (!error) {
-                mostrarNotificacion(`✏️ Tarea editada correctamente`, 'exito');
-            }
-        } else if (nuevoResponsable !== null) {
-            mostrarNotificacion('El responsable no puede estar vacío', 'warning');
-        }
-    } else if (nuevoTitulo !== null) {
-        mostrarNotificacion('El título no puede estar vacío', 'warning');
+    document.getElementById('modal-titulo').value = tituloActual;
+    document.getElementById('modal-responsable').value = responsableActual;
+    
+    const modal = document.getElementById('modal-editar');
+    modal.style.display = 'flex';
+}
+
+function cerrarModal() {
+    const modal = document.getElementById('modal-editar');
+    modal.style.display = 'none';
+    tareaIdEditando = null;
+}
+
+window.guardarEdicion = async function() {
+    if (!tareaIdEditando) return;
+    
+    const nuevoTitulo = document.getElementById('modal-titulo').value.trim();
+    const nuevoResponsable = document.getElementById('modal-responsable').value.trim();
+    
+    if (!nuevoTitulo || !nuevoResponsable) {
+        mostrarNotificacion('Completa todos los campos', 'warning');
+        return;
+    }
+    
+    const { error } = await db.from('tareas').update({ 
+        titulo: nuevoTitulo, 
+        responsable: nuevoResponsable 
+    }).eq('id', tareaIdEditando);
+    
+    if (!error) {
+        mostrarNotificacion('Tarea editada correctamente', 'exito');
+        cerrarModal();
+    } else {
+        mostrarNotificacion('Error al editar la tarea', 'error');
     }
 }
 
-// Función para eliminar una tarea
-window.eliminarTarea = async function(id) {
-    if (confirm('¿Estás seguro de que quieres eliminar esta tarea?')) {
-        const { error } = await db.from('tareas').delete().eq('id', id);
-        if (!error) {
-            mostrarNotificacion('🗑️ Tarea eliminada correctamente', 'exito');
-        }
+// ==================== ELIMINAR CON MODAL ====================
+let tareaIdEliminar = null;
+let tareaTituloEliminar = '';
+
+window.eliminarTarea = function(id) {
+    tareaIdEliminar = id;
+    tareaTituloEliminar = document.getElementById(`titulo-${id}`).textContent;
+    
+    const infoDiv = document.getElementById('tarea-eliminar-info');
+    if (infoDiv) {
+        infoDiv.textContent = `"${tareaTituloEliminar}"`;
+    }
+    
+    const modal = document.getElementById('modal-eliminar');
+    if (modal) {
+        modal.style.display = 'flex';
     }
 }
+
+function cerrarModalEliminar() {
+    const modal = document.getElementById('modal-eliminar');
+    if (modal) {
+        modal.style.display = 'none';
+    }
+    tareaIdEliminar = null;
+    tareaTituloEliminar = '';
+}
+
+window.confirmarEliminar = async function() {
+    if (!tareaIdEliminar) return;
+    
+    const { error } = await db.from('tareas').delete().eq('id', tareaIdEliminar);
+    
+    if (!error) {
+        mostrarNotificacion(`Tarea "${tareaTituloEliminar}" eliminada correctamente`, 'exito');
+        cerrarModalEliminar();
+    } else {
+        mostrarNotificacion('Error al eliminar la tarea', 'error');
+        cerrarModalEliminar();
+    }
+}
+
+// Cerrar modales al hacer clic fuera
+document.addEventListener('click', function(event) {
+    const modalEditar = document.getElementById('modal-editar');
+    if (modalEditar && event.target === modalEditar) {
+        cerrarModal();
+    }
+    
+    const modalEliminar = document.getElementById('modal-eliminar');
+    if (modalEliminar && event.target === modalEliminar) {
+        cerrarModalEliminar();
+    }
+});
 
 // ==================== TIEMPO REAL ====================
 db.channel('tareas-canal')
