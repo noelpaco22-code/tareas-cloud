@@ -140,9 +140,8 @@ Ya creado el proyecto, vamos al SQL Editor para crear la tabla:
 Creamos el archivo index.html con el siguiente contenido base:
 ![Código index.html](media/3.png)
 
-
+Creamos el archivo app.js con la lógica de conexión a Supabase: 
 ![Código app.js - Parte 1](media/4.jpg)
-*Lógica de conexión con Supabase*
 
 ![Código app.js - Parte 2](media/7.jpg)
 *Funciones CRUD y tiempo real*
