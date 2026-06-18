@@ -57,11 +57,6 @@ Desarrollar una aplicación web funcional que integre un backend en tiempo real 
 ## 🏗️ Arquitectura de la Aplicación
 
 ### Diagrama de Arquitectura Cloud
-## 🏗️ Arquitectura de la Aplicación
-
-### Diagrama de Arquitectura Cloud
-
-## 🏗️ Arquitectura de la Aplicación
 
 **Frontend (Vercel)**
 - HTML5, CSS3, JavaScript
