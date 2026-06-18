@@ -141,10 +141,7 @@ Creamos el archivo index.html con el siguiente contenido base:
 ![Código index.html](media/3.png)
 
 
-
-
-
-![Código app.js - Parte 1](media/6.png)
+![Código app.js - Parte 1](media/4.jpg)
 *Lógica de conexión con Supabase*
 
 ![Código app.js - Parte 2](media/7.jpg)
