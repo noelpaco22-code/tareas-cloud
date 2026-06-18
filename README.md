@@ -156,7 +156,7 @@ Evidencia del despliegue exitoso en Vercel y la URL de producción.
 
 ---
 
-## 👥 Autores
+## 👥 Integrantes
 
 | Nombre | Rol |
 |--------|-----|
