@@ -121,7 +121,7 @@ Abrir index.html en tu navegador
 ### FASE 1: Configuración de Supabase
 Creamos un nuevo proyecto. con el nombre: tareas-cloud, contraseña segura para la base de datos y la región más cercana São Paulo. 
 ![Creación de proyecto en Supabase](media/image2.png)
-*Proyecto creado en Supabase*
+Ya creado el proyecto, vamos al SQL Editor para crear la tabla: 
 
 ![Creación de tabla tareas](media/image.jpg)
 *Tabla tareas creada con SQL Editor*
