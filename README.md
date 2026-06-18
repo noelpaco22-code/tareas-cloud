@@ -132,6 +132,10 @@ Ya creado el proyecto, vamos al SQL Editor para crear la tabla:
 ![Estructura de archivos en VS Code](media/2.png)
 
 
+
+
+
+
 ### FASE 3: Desarrollo de la Aplicación
 Creamos el archivo index.html con el siguiente contenido base:
 ![Código index.html](media/3.png)
