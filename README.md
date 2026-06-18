@@ -104,3 +104,134 @@ Desarrollar una aplicación web funcional que integre un backend en tiempo real 
    ALTER TABLE tareas ENABLE ROW LEVEL SECURITY;
    CREATE POLICY "acceso_publico" ON tareas FOR ALL USING (true);
    ALTER PUBLICATION supabase_realtime ADD TABLE tareas;
+
+3. **Conectar la aplicación**
+   - Abrir `app.js`
+   - Reemplazar las credenciales:
+   ```javascript
+   const SUPABASE_URL = 'https://tu-proyecto.supabase.co';
+   const SUPABASE_ANON_KEY = 'tu-anon-key-aqui';
+
+4. Ejecutar la aplicación
+Abrir index.html en tu navegador
+¡Listo!
+
+## 📸 Capturas de Pantalla
+
+### FASE 1: Configuración de Supabase
+![Creación de proyecto en Supabase](media/image2.png)
+*Proyecto creado en Supabase*
+
+![Creación de tabla tareas](media/image3.png)
+*Tabla tareas creada con SQL Editor*
+
+### FASE 2: Estructura del Proyecto
+![Estructura de archivos en VS Code](media/image5.png)
+*Estructura de archivos del proyecto*
+
+### FASE 3: Desarrollo de la Aplicación
+![Código index.html](media/image6.png)
+*Estructura HTML de la aplicación*
+
+![Código app.js](media/image7.png)
+*Lógica de conexión con Supabase*
+
+![Estilos CSS](media/image9.png)
+*Estilos modernos con efectos neón*
+
+### FASE 4: Control de Versiones (GitHub)
+![Repositorio en GitHub](media/image11.png)
+*Repositorio tareas-cloud en GitHub*
+
+### FASE 5: Despliegue en Vercel
+![Despliegue en Vercel](media/image12.jpeg)
+*Aplicación desplegada en producción*
+
+---
+
+## 👥 Autores
+
+| Nombre | Rol |
+|--------|-----|
+| **Noel Paco Toledo** | Desarrollador |
+| **Jhoanny Justiniano Mendoza** | Desarrollador |
+| **Douglas Guayusca Flores** | Desarrollador |
+
+**Docente:** ING. Hermes Rodriguez Rivero  
+**Asignatura:** Tecnologías Emergentes (7mo Semestre)  
+**Universidad:** UAB FIT - Facultad de Ingeniería y Tecnología  
+**Carrera:** Ingeniería en Sistemas  
+**Fecha:** Junio 2026
+
+---
+
+## 📚 Reflexión Final
+
+La práctica permitió implementar una aplicación colaborativa en tiempo real utilizando servicios cloud modernos. Se integraron:
+
+- **GitHub** para el control de versiones y colaboración
+- **Supabase** como plataforma backend (PaaS) con base de datos y tiempo real
+- **Vercel** para el despliegue automático y hosting
+
+Se logró una solución **accesible, escalable y disponible** desde cualquier dispositivo con acceso a Internet, demostrando las ventajas del modelo PaaS en el desarrollo de software moderno.
+
+---
+
+## 📋 Preguntas Guía
+
+### 1. ¿En qué modelo de servicio (IaaS/PaaS/SaaS) clasificarías a Supabase y por qué?
+
+**Supabase se clasifica como PaaS (Platform as a Service)** porque proporciona una plataforma completa para desarrollar aplicaciones sin necesidad de administrar servidores. Ofrece base de datos PostgreSQL, autenticación, almacenamiento y tiempo real como servicios integrados y gestionados.
+
+### 2. ¿Qué tareas del backend manejó Supabase que normalmente tendrías que hacer manualmente?
+
+Supabase administró:
+- ✅ La base de datos PostgreSQL
+- ✅ Almacenamiento y consulta de datos
+- ✅ Sincronización en tiempo real (WebSockets)
+- ✅ Políticas de seguridad (Row Level Security)
+- ✅ API automática para operaciones CRUD
+
+### 3. ¿Cómo funciona el tiempo real en Supabase? ¿Qué tecnología subyacente utiliza?
+
+Supabase utiliza **WebSockets** a través de la extensión `pg_realtime` de PostgreSQL. Cuando ocurre un cambio en la base de datos (INSERT, UPDATE, DELETE), se emiten eventos a todos los clientes conectados, permitiendo que la interfaz se actualice automáticamente sin recargar la página.
+
+### 4. ¿Cuál fue el proceso de CI/CD que implementaste con GitHub y Vercel?
+
+El proceso fue:
+1. Desarrollo local del proyecto
+2. Commits periódicos a GitHub con mensajes descriptivos
+3. Vercel detecta automáticamente los cambios en el repositorio
+4. Vercel construye y despliega la nueva versión automáticamente
+
+### 5. ¿Qué ventajas y desventajas encontraste en el modelo PaaS comparado con un servidor tradicional?
+
+| Ventajas | Desventajas |
+|----------|-------------|
+| Rapidez de desarrollo | Dependencia del proveedor |
+| Menor administración de infraestructura | Costos al crecer la aplicación |
+| Escalabilidad automática | Menor control sobre la infraestructura |
+| No hay que configurar servidores | Posibles limitaciones en personalización |
+
+### 6. ¿Qué consideraciones de seguridad deberías aplicar si esta fuera una aplicación en producción real?
+
+- 🔒 Variables de entorno para claves API (no hardcodearlas)
+- 🔒 Políticas RLS (Row Level Security) en Supabase
+- 🔒 HTTPS obligatorio
+- 🔒 Autenticación de usuarios (login/registro)
+- 🔒 Control de permisos y roles
+- 🔒 Validación de datos en frontend y backend
+- 🔒 Límites de tasa (rate limiting)
+- 🔒 Auditoría de accesos y logs
+
+---
+
+## 📝 Licencia
+
+Este proyecto es de uso académico para la materia **Tecnologías Emergentes** - UAB FIT.
+
+---
+
+**Desarrollado con ❤️ por el equipo de Tecnologías Emergentes**
+
+*Santísima Trinidad - Bolivia, Junio 2026*
