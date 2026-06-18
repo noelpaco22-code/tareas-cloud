@@ -133,8 +133,9 @@ Ya creado el proyecto, vamos al SQL Editor para crear la tabla:
 
 
 ### FASE 3: Desarrollo de la Aplicación
+Creamos el archivo index.html con el siguiente contenido base:
 ![Código index.html](media/3.png)
-*Estructura HTML de la aplicación*
+
 
 ![Código app.js - Parte 1](media/6.png)
 *Lógica de conexión con Supabase*
