@@ -77,9 +77,6 @@ Desarrollar una aplicación web funcional que integre un backend en tiempo real 
 5. Los cambios se sincronizan en tiempo real
 6. Todos los usuarios ven los cambios al instante
 ## 📦 Instalación Local
-
-## 📦 Instalación Local
-
 ### Requisitos Previos
 - [Visual Studio Code](https://code.visualstudio.com/)
 - [Git](https://git-scm.com/)
