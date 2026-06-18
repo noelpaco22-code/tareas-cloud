@@ -132,10 +132,6 @@ Ya creado el proyecto, vamos al SQL Editor para crear la tabla:
 ![Estructura de archivos en VS Code](media/2.png)
 
 
-
-
-
-
 ### FASE 3: Desarrollo de la Aplicación
 Creamos el archivo index.html con el siguiente contenido base:
 ![Código index.html](media/3.png)
@@ -146,8 +142,8 @@ Creamos el archivo app.js con la lógica de conexión a Supabase:
 style.css con estilos modernos y responsivos
 ![Código app.js - Parte 2](media/5.jpg)
 
-*Funciones CRUD y tiempo real*
-
+### FASE 4: Control de Versiones (GitHub)
+Creamos un nuevo repositorio en GitHub
 ![Estilos CSS](media/8.jpg)
 *Estilos modernos con efectos neón*
 
