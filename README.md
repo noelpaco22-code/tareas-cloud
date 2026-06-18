@@ -57,42 +57,30 @@ Desarrollar una aplicación web funcional que integre un backend en tiempo real 
 ## 🏗️ Arquitectura de la Aplicación
 
 ### Diagrama de Arquitectura Cloud
-USUARIOS (Navegadores Web)
-│
-▼
-┌───────────────────────────┐
-│ VERCEL │
-│ (Frontend) │
-│ │
-│ • HTML5 │
-│ • CSS3 │
-│ • JavaScript │
-│ • Diseño responsivo │
-└────────────┬───────────────┘
-│
-▼
-┌─────────────────────────────────────────────┐
-│ SUPABASE (Backend) │
-│ │
-│ ┌────────────────────────────────────────┐ │
-│ │ Base de Datos PostgreSQL │ │
-│ │ ┌──────────────────────────────────┐ │ │
-│ │ │ Tabla: tareas │ │ │
-│ │ │ • id (UUID) │ │ │
-│ │ │ • titulo (TEXT) │ │ │
-│ │ │ • responsable (TEXT) │ │ │
-│ │ │ • completada (BOOLEAN) │ │ │
-│ │ │ • created_at (TIMESTAMP) │ │ │
-│ │ └──────────────────────────────────┘ │ │
-│ └────────────────────────────────────────┘ │
-│ │
-│ ┌────────────────────────────────────────┐ │
-│ │ Tiempo Real (WebSockets) │ │
-│ │ • Eventos: INSERT, UPDATE, DELETE │ │
-│ └────────────────────────────────────────┘ │
-│ │
-│ ┌────────────────────────────────────────┐ │
-│ │ Seguridad (RLS) │ │
-│ │ • Políticas de acceso público │ │
-│ └────────────────────────────────────────┘ │
-└─────────────────────────────────────────────┘
+## 🏗️ Arquitectura de la Aplicación
+
+### Diagrama de Arquitectura Cloud
+
+**USUARIOS (Navegadores Web)**
+  ↓
+**VERCEL (Frontend)**
+  • HTML5
+  • CSS3
+  • JavaScript
+  • Diseño responsivo
+  ↓
+**SUPABASE (Backend)**
+
+  **Base de Datos PostgreSQL**
+    Tabla: tareas
+      • id (UUID)
+      • titulo (TEXT)
+      • responsable (TEXT)
+      • completada (BOOLEAN)
+      • created_at (TIMESTAMP)
+
+  **Tiempo Real (WebSockets)**
+    • Eventos: INSERT, UPDATE, DELETE
+
+  **Seguridad (RLS)**
+    • Políticas de acceso público
