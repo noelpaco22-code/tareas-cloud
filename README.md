@@ -61,26 +61,23 @@ Desarrollar una aplicación web funcional que integre un backend en tiempo real 
 
 ### Diagrama de Arquitectura Cloud
 
-**USUARIOS (Navegadores Web)**
-  ↓
-**VERCEL (Frontend)**
-  • HTML5
-  • CSS3
-  • JavaScript
-  • Diseño responsivo
-  ↓
-**SUPABASE (Backend)**
+## 🏗️ Arquitectura de la Aplicación
 
-  **Base de Datos PostgreSQL**
-    Tabla: tareas
-      • id (UUID)
-      • titulo (TEXT)
-      • responsable (TEXT)
-      • completada (BOOLEAN)
-      • created_at (TIMESTAMP)
+**Frontend (Vercel)**
+- HTML5, CSS3, JavaScript
+- Diseño responsivo (PC, Tablet, Celular)
+- URL: https://tareas-cloud-nu.vercel.app/
 
-  **Tiempo Real (WebSockets)**
-    • Eventos: INSERT, UPDATE, DELETE
+**Backend (Supabase)**
+- Base de datos PostgreSQL
+- Tabla: tareas (id, titulo, responsable, completada, created_at)
+- Tiempo Real (WebSockets) con eventos: INSERT, UPDATE, DELETE
+- Seguridad: RLS con políticas de acceso público
 
-  **Seguridad (RLS)**
-    • Políticas de acceso público
+**Flujo de la aplicación:**
+1. Usuario accede a la URL
+2. Frontend carga la interfaz
+3. JavaScript se conecta a Supabase
+4. Supabase devuelve las tareas
+5. Los cambios se sincronizan en tiempo real
+6. Todos los usuarios ven los cambios al instante
