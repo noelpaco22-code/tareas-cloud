@@ -122,7 +122,7 @@ Abrir index.html en tu navegador
 ![Creación de proyecto en Supabase](media/image2.png)
 *Proyecto creado en Supabase*
 
-![Creación de tabla tareas](media/2.png)
+![Creación de tabla tareas](media/image.png)
 *Tabla tareas creada con SQL Editor*
 
 ![SQL Editor ejecutado](media/3.png)
