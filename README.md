@@ -119,7 +119,7 @@ Abrir index.html en tu navegador
 ## 📸 Capturas de Pantalla
 
 ### FASE 1: Configuración de Supabase
-![Creación de proyecto en Supabase](media/1.jpg)
+![Creación de proyecto en Supabase](media/image 2.jpg)
 *Proyecto creado en Supabase*
 
 ![Creación de tabla tareas](media/2.png)
