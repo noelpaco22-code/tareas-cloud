@@ -127,8 +127,9 @@ Ya creado el proyecto, vamos al SQL Editor para crear la tabla:
 ![Creación de tabla tareas](media/1.jpg)
 
 ### FASE 2: Estructura del Proyecto
-![Estructura de archivos en VS Code](media/4.jpg)
 *Estructura de archivos del proyecto*
+![Estructura de archivos en VS Code](media/2.jpg)
+
 
 ### FASE 3: Desarrollo de la Aplicación
 ![Código index.html](media/5.jpg)
