@@ -76,3 +76,18 @@ Desarrollar una aplicación web funcional que integre un backend en tiempo real 
 4. Supabase devuelve las tareas
 5. Los cambios se sincronizan en tiempo real
 6. Todos los usuarios ven los cambios al instante
+## 📦 Instalación Local
+
+### Requisitos Previos
+- [Visual Studio Code](https://code.visualstudio.com/)
+- [Git](https://git-scm.com/)
+- Cuenta gratuita en [Supabase](https://supabase.com)
+- Cuenta gratuita en [GitHub](https://github.com)
+- Navegador web moderno
+
+### Pasos para ejecutar localmente
+
+1. **Clonar el repositorio**
+   ```bash
+   git clone https://github.com/noelpaco22-code/tareas-cloud.git
+   cd tareas-cloud
