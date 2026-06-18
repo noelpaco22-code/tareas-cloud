@@ -144,19 +144,13 @@ style.css con estilos modernos y responsivos
 
 ### FASE 4: Control de Versiones (GitHub)
 Creamos un nuevo repositorio en GitHub
-![Estilos CSS](media/8.jpg)
-*Estilos modernos con efectos neón*
+![Repositorio en GitHub](media/8.jpg)
 
-![README.md](media/9.jpg)
-*Documentación del proyecto*
-
-### FASE 4: Control de Versiones (GitHub)
-![Repositorio en GitHub](media/imagen.jpg)
-*Repositorio tareas-cloud en GitHub*
 
 ### FASE 5: Despliegue en Vercel
-![Despliegue en Vercel](media/imagen.png)
-*Aplicación desplegada en producción*
+Evidencia del despliegue exitoso en Vercel y la URL de producción.
+![Despliegue en Vercel](media/9.jpg)
+
 
 ---
 
