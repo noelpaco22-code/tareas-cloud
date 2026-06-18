@@ -133,7 +133,7 @@ Ya creado el proyecto, vamos al SQL Editor para crear la tabla:
 
 
 ### FASE 3: Desarrollo de la Aplicación
-![Código index.html](media/5.jpg)
+![Código index.html](media/3.png)
 *Estructura HTML de la aplicación*
 
 ![Código app.js - Parte 1](media/6.png)
