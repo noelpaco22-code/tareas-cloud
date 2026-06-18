@@ -143,7 +143,9 @@ Creamos el archivo index.html con el siguiente contenido base:
 Creamos el archivo app.js con la lógica de conexión a Supabase: 
 ![Código app.js - Parte 1](media/4.jpg)
 
-![Código app.js - Parte 2](media/7.jpg)
+style.css con estilos modernos y responsivos
+![Código app.js - Parte 2](media/5.jpg)
+
 *Funciones CRUD y tiempo real*
 
 ![Estilos CSS](media/8.jpg)
