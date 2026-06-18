@@ -1,6 +1,8 @@
 # 📋 Tareas Cloud - Sistema de Tareas Colaborativas en Tiempo Real
 
-![Vista previa de la aplicación](https://tareas-cloud-nu.vercel.app/)
+## 🌐 Demo en Vivo
+
+🔗 **[Ver aplicación en Vercel](https://tareas-cloud-nu.vercel.app/)**
 
 ---
 
