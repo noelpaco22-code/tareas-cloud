@@ -119,32 +119,41 @@ Abrir index.html en tu navegador
 ## 📸 Capturas de Pantalla
 
 ### FASE 1: Configuración de Supabase
-![Creación de proyecto en Supabase](media/1.png)
+![Creación de proyecto en Supabase](media/1.jpg)
 *Proyecto creado en Supabase*
 
-![Creación de tabla tareas](media/image3.png)
+![Creación de tabla tareas](media/2.png)
 *Tabla tareas creada con SQL Editor*
 
+![SQL Editor ejecutado](media/3.png)
+*Script SQL ejecutado correctamente*
+
 ### FASE 2: Estructura del Proyecto
-![Estructura de archivos en VS Code](media/image5.png)
+![Estructura de archivos en VS Code](media/4.jpg)
 *Estructura de archivos del proyecto*
 
 ### FASE 3: Desarrollo de la Aplicación
-![Código index.html](media/image6.png)
+![Código index.html](media/5.jpg)
 *Estructura HTML de la aplicación*
 
-![Código app.js](media/image7.png)
+![Código app.js - Parte 1](media/6.png)
 *Lógica de conexión con Supabase*
 
-![Estilos CSS](media/image9.png)
+![Código app.js - Parte 2](media/7.jpg)
+*Funciones CRUD y tiempo real*
+
+![Estilos CSS](media/8.jpg)
 *Estilos modernos con efectos neón*
 
+![README.md](media/9.jpg)
+*Documentación del proyecto*
+
 ### FASE 4: Control de Versiones (GitHub)
-![Repositorio en GitHub](media/image11.png)
+![Repositorio en GitHub](media/imagen.jpg)
 *Repositorio tareas-cloud en GitHub*
 
 ### FASE 5: Despliegue en Vercel
-![Despliegue en Vercel](media/image12.jpeg)
+![Despliegue en Vercel](media/imagen.png)
 *Aplicación desplegada en producción*
 
 ---
